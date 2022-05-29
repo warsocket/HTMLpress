@@ -1,0 +1,36 @@
+body{
+	font-family: sans-serif;
+}
+
+section{
+	padding-left: 1cm;
+	padding-right: 1cm;
+	padding-top: 1cm;
+	padding-bottom: 1cm;
+	width: 100mm;
+}
+
+section.title{
+	text-align: center;
+}
+
+div.title{
+	padding-top: 5cm;
+	font-size: 20mm;
+	position: relative;
+}
+
+header, footer{
+	padding: 4mm; 
+	font-size: 5mm;
+}
+
+header{
+	text-align: center;
+	text-decoration: underline;
+}
+
+footer{
+	text-align: right; 
+	font-family: monospace;
+}

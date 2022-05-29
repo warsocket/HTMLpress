@@ -1,0 +1,53 @@
+body, html{
+	margin: 0px;
+	padding: 0px;
+}
+
+section:first-child{
+	break-before: auto;
+	break-after: always;
+}
+
+section{
+	box-sizing: border-box;
+	break-before: always;
+	margin: 0px;
+	height: 297mm;
+	width: 210mm;
+	overflow: hidden;
+	position: relative;
+	/*display: block;*/
+}
+
+@media screen{
+	section{
+		border: 1mm red solid;
+	}
+
+	header, footer{
+		background-color: cyan;
+	}
+}
+
+@page{
+	margin: 0px;
+	size: A4 portrait;
+}
+
+header, footer{
+	width: 100%;
+	display: block;
+	position: absolute;
+	margin: 0px;
+}
+
+header{
+	top: 0%;
+	left: 0%;
+}
+
+footer{
+	top: 100%;
+	left: 100%;
+	transform: translateY(-100%) translateX(-100%) 
+}
