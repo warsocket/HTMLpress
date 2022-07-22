@@ -28,15 +28,16 @@ function main(){
 	var domObject
 	while(article.children.length){
 		domObject = article.children[0]
-		if (domObject.tagName != "SECTION"){
-			sec.appendChild(domObject)
-		}else{
-			if (!sec.children.length) sec.remove()
-			art.appendChild(domObject) //append section as is
 
+		if (domObject.tagName == "SECTION"){
+			if (!sec.children.length) sec.remove() // Remove empty section/page (which is always the standby implicit section)
+
+			art.appendChild(domObject) //append section as is
 			sec = document.createElement('section') //create new section
 			art.appendChild(sec)
 
+		}else{
+			sec.appendChild(domObject)
 		}	
 
 		// check for overflow
@@ -44,22 +45,32 @@ function main(){
 			sec = document.createElement('section') //create new section
 			art.appendChild(sec)
 			sec.appendChild(domObject) // add it to new section (technically moving it)
-		}	
+		}
+
 	}
 	// article.remove()
 
 	/* place headers and footers */
-	pages = art.children.length //overwrite pages variable
 	for (let section of art.children){
-		if(section.classList.contains("title")) continue //Title pages dont get headers / footers
+		transformClassList(section)
 
-		let h = document.createElement("header")
-		h.innerHTML = header()
-		section.appendChild(h)
+		if( !section.classList.contains("nocount") ) ++pages //dont count the nocounts
+	}
 
-		let f = document.createElement("footer")
-		f.innerHTML = footer()
-		section.appendChild(f)
+	for (let section of art.children){
+		if( !section.classList.contains("nocount") ) ++pagecount //dont count the nocounts
+
+		if( !section.classList.contains("noheader") ){
+			let h = document.createElement("header")
+			h.innerHTML = header()
+			section.appendChild(h)
+		}
+
+		if( !section.classList.contains("nofooter") ){
+			let f = document.createElement("footer")
+			f.innerHTML = footer()
+			section.appendChild(f)
+		}
 	}
 
 
