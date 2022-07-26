@@ -53,15 +53,30 @@ footer{
 }
 
 table{
-	font-family: monospace;
+	font-family: sans-serif;
 	border-collapse: collapse;
 	border-spacing: 10px;
+	border: 1px solid;
+}
+
+tr{
+	border: 1px solid;
+}
+
+td{
+	border: 1px solid;
+}
+
+thead, tfoot{
+	/*text-decoration: underline;*/
+	font-weight: bold;
+	text-align: center;
+}
+
+summary{
+	text-align: left;
 }
 
 .space{
-	width: 2em;
+	height: 2em;
 }
-/*tr{
-	margin-left: 1em;
-	margin-right: 1em;
-}*/

@@ -10,7 +10,10 @@ function main(){
 	/* Filling in text from data sctructure*/
 	for (var domObject of document.querySelectorAll("[data]")){
 		let d = domObject.getAttribute("data")
-		domObject.innerText = data[d]
+		let obj = data[d]
+		if (typeof(obj) === "function") obj = obj()
+
+		domObject.innerText = obj
 	}
 
 
